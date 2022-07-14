@@ -1,8 +1,16 @@
 import "./styles.css";
-import { Paragraph, Document, Packer } from "docx";
+import {
+  Paragraph,
+  Document,
+  Packer,
+  HeadingLevel,
+  AlignmentType,
+  TextRun
+} from "docx";
 import { saveAs } from "file-saver";
 import split from "./Split";
 import jobFormat from "./JobFormat";
+import styles from "./style";
 //generates doc and holds basic html headers words and stuff
 
 //export default function GenDoc(values) {
@@ -15,15 +23,23 @@ export default function generate(values) {
     values["duties"]
   );
   const doc = new Document({
+    styles: styles.getStyles,
     sections: [
       {
         children: [
           new Paragraph({
-            text: values["name"],
-            bullet: {
-              level: 0 //How deep you want the bullet to be
-            }
+            alignment: AlignmentType.CENTER,
+            children: [
+              new TextRun({
+                text: values["name"],
+                font: "Bookman Old Style",
+                size: 40,
+                bold: true,
+                underline: true
+              })
+            ]
           }),
+          new Paragraph({}),
           skills,
           experience,
           new Paragraph({

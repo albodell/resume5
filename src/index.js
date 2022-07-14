@@ -39,7 +39,7 @@ const AreaField = React.forwardRef((props, ref) => {
 function App() {
   const defaultValues = React.useMemo(
     () => ({
-      name: "Alex",
+      name: "John Doe",
       phone: "248-568-8923",
       email: "Alex@gmail.com",
       experience: ["Engineer"],
