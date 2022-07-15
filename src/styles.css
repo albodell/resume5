@@ -11,14 +11,14 @@ body {
 }
 div {
   background-color: beige;
-  padding: 10px;
+  padding: 20px;
   margin: 0 0 1rem;
 }
 
 input,
 textarea,
 button {
-  display: table-column;
+  display: flexbox;
   font-family: sans-serif;
   margin: auto;
   background-color: #f7f6eb;
@@ -29,7 +29,7 @@ button {
 
 textarea {
   display: block;
-  width: 500px;
+  width: 700px;
   height: 150px;
 }
 label {

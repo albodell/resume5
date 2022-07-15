@@ -88,7 +88,7 @@ function App() {
             field="overview"
             defaultValue="●  This is a note."
             onKeyPress={bullet}
-            contenteditable={bullet}
+            onPaste={bullet}
           />
         </label>
       </div>
@@ -110,9 +110,16 @@ function App() {
             <div key={i}>
               <label>
                 Job Title: <InputField field={`experience.${i}`} /> Company:{" "}
-                <InputField field={`company.${i}`} /> Date:{" "}
-                <InputField field={`date.${i}`} /> Duties:{" "}
-                <AreaField field={`duties.${i}`} onKeyPress={bullet} />{" "}
+                <InputField field={`company.${i}`} />
+                <br />
+                <br />
+                Start: <InputField field={`start.${i}`} /> End:{" "}
+                <InputField field={`end.${i}`} />
+                <br />
+                <br />
+              </label>
+              <label>
+                Duties: <AreaField field={`duties.${i}`} onKeyPress={bullet} />{" "}
                 <button
                   type="button"
                   onClick={() => removeFieldValue("experience", i)}
