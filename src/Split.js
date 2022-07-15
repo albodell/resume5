@@ -15,7 +15,7 @@ export default function getTextPara(textElement) {
     para.addChildElement(text);
 
     text = new docx.TextRun({
-      text: "●    ",
+      text: "",
       break: 1
     });
 

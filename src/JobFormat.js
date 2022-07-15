@@ -20,7 +20,9 @@ export default function getTextPara(title, company, date, duties) {
 
       text = new docx.TextRun({
         text: "",
-        break: 1
+        break: 1,
+        font: "Bookman Old Style",
+        size: 19
       });
 
       para.addChildElement(text);

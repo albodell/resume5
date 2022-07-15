@@ -81,11 +81,14 @@ function App() {
         <label>
           Overview Title:
           <InputField field="overviewTitle" />
-          Overview:{" "}
+        </label>
+        Overview:{" "}
+        <label>
           <AreaField
             field="overview"
             defaultValue="●  This is a note."
             onKeyPress={bullet}
+            contenteditable={bullet}
           />
         </label>
       </div>

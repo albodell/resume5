@@ -16,6 +16,7 @@ import styles from "./style";
 //export default function GenDoc(values) {
 export default function generate(values) {
   const skills = split(values["skills"]);
+  const overview = split(values["overview"]);
   const experience = jobFormat(
     values["experience"],
     values["company"],
@@ -41,10 +42,16 @@ export default function generate(values) {
                 text: " ________________________________________",
                 size: 40,
                 bold: true
+              }),
+              new TextRun({
+                break: 1,
+                text: values["overviewTitle"],
+                font: "Bookman Old Style",
+                size: 26
               })
             ]
           }),
-
+          overview,
           skills,
           experience,
           new Paragraph({

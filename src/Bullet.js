@@ -4,4 +4,10 @@ export default function bullet(e) {
     e.preventDefault();
     e.target.value += "\n●  ";
   }
+  if (e.target.value.includes("")) {
+    e.preventDefault();
+    console.log("b");
+    e.target.value = e.target.value.replace("", "");
+  }
+  console.log(e.target.value);
 }
