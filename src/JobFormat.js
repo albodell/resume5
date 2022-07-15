@@ -1,3 +1,5 @@
+import bullet from "./Bullet";
+
 export default function getTextPara(title, company, date, duties) {
   var docx = require("docx");
   var text;

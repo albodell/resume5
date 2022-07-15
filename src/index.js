@@ -1,18 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import generate from "./GenDoc";
+import bullet from "./Bullet";
 
 import "./styles.css";
 
 import { useForm, useField, splitFormProps } from "react-form";
-
-function bullet(e) {
-  var code = e.keyCode ? e.keyCode : e.which;
-  if (code == 13) {
-    e.preventDefault();
-    e.target.value += "\n●  ";
-  }
-}
 
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
@@ -84,15 +77,22 @@ function App() {
           />
         </label>
       </div>
-
       <div>
         <label>
-          Technical Expertise:{" "}
+          Overview Title:
+          <InputField field="overviewTitle" />
+          Overview:{" "}
           <AreaField
-            field="skills"
+            field="overview"
             defaultValue="●  This is a note."
             onKeyPress={bullet}
           />
+        </label>
+      </div>
+      <div>
+        <label>
+          Technical Expertise:{" "}
+          <AreaField field="skills" defaultValue="This is a note." />
         </label>
       </div>
       <div>
@@ -109,7 +109,7 @@ function App() {
                 Job Title: <InputField field={`experience.${i}`} /> Company:{" "}
                 <InputField field={`company.${i}`} /> Date:{" "}
                 <InputField field={`date.${i}`} /> Duties:{" "}
-                <AreaField field={`duties.${i}`} />{" "}
+                <AreaField field={`duties.${i}`} onKeyPress={bullet} />{" "}
                 <button
                   type="button"
                   onClick={() => removeFieldValue("experience", i)}
