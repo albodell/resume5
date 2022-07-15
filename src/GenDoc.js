@@ -36,10 +36,15 @@ export default function generate(values) {
                 size: 40,
                 bold: true,
                 underline: true
+              }),
+              new TextRun({
+                text: " ________________________________________",
+                size: 40,
+                bold: true
               })
             ]
           }),
-          new Paragraph({}),
+
           skills,
           experience,
           new Paragraph({

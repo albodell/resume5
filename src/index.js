@@ -6,6 +6,14 @@ import "./styles.css";
 
 import { useForm, useField, splitFormProps } from "react-form";
 
+function bullet(e) {
+  var code = e.keyCode ? e.keyCode : e.which;
+  if (code == 13) {
+    e.preventDefault();
+    e.target.value += "\n●  ";
+  }
+}
+
 const InputField = React.forwardRef((props, ref) => {
   // Let's use splitFormProps to get form-specific props
   const [field, fieldOptions, rest] = splitFormProps(props);
@@ -80,7 +88,11 @@ function App() {
       <div>
         <label>
           Technical Expertise:{" "}
-          <AreaField field="skills" defaultValue="This is a note." />
+          <AreaField
+            field="skills"
+            defaultValue="●  This is a note."
+            onKeyPress={bullet}
+          />
         </label>
       </div>
       <div>
